@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<title>wikinado</title>
+<script type=importmap>{"imports":{"simply/":"./n_modules/@simplyjs/lib/dist/"}}</script>
+
+<script id=lib-dom-base type=module src='./n_modules/@simplyjs/lib/dist/dom/base.g.js'></script>
+<script id=lib-dom-router type=module src='./n_modules/@simplyjs/lib/dist/dom/router.g.js'></script>
+
+<script id=base type=module src='./base.js'></script>
+<link preserve-on-route id=md-style rel=stylesheet href='./md-style.css'>
+<div class=markdown-body>
+<h1 style='text-align: center'>WIKINADO</h1>
+<h2>welcome</h2>
+<p>Tornado is a violently rotating column of air that extends from a thunderstorm to the ground, creating a distinctive funnel-shaped cloud. Resulted from infinite factors and conected to uncountable side effect with unbeatable destructive power, it is important to have a fulfilling source of information about this natural disaster.</p>
+<p>and for that we introduce to you the <b>"WIKINADO"</b>, a fully featured mini wiki about tornados that cover every domain of tornados in a simple plain english format.</p>
+
+<h2>index</h2>
+<div scr-on>
+var cat = (obj, name, path) => {
+	var el = $el('details')[0];
+	el.append($el('summary', {innerText: name})[0]);
+	var list = $el('ul')[0];
+	list.append(...Object.entries(obj).map(([prop, val]) =>{
+		var item = $el('li')[0];
+		if (typeof val === 'object') item.append(cat(val, prop, path.concat(prop)));
+		else item.append($el('a', {href: `./${path.join('/')}/${prop}.html`, innerText: prop})[0]);
+		return item
+	}));
+	el.append(list);
+	return el
+};
+return [cat(wikiStruct, 'wiki', ['wiki']).children[1]]
+</div>
+
+<h2>other pages</h2>
+<p>here you can find the other projects</p>
+<p>link to <a href=unkown>google drive</a></p>
+
+<h2>about us</h2>
+<p>this project is from grade 11 A of alsarafand public high school</p>
+<details>
+<summary>members</summary>
+<ul>
+	<li>Ali Ibrahim</li>
+	<li>Ali Fawaz</li>
+	<li>Ali Harbi</li>
+	<li>Ali Younes</li>
+	<li>Hussien Sfawi</li>
+	<li>Majid Mlouk</li>
+	<li>Samer Bazawi</li>
+	<li>Sedra Kholany</li>
+	<li>Sobhyah Shalhoub</li>
+	<li>Zainab Wehbi</li>
+	<li>Zahra Badran</li>
+	<li>Rien Khalifi</li>
+</ul>
+</details>
+</div>
