@@ -16,7 +16,7 @@ globalThis.wikiStruct = {
 		"waterspout": true,
 		"similar circulations": true,
 	},
-	"Impacts": {
+	"Impacts of Tornado": {
 		"health impacts": true,
 		"ecological impacts": true,
 		"social impacts": true
