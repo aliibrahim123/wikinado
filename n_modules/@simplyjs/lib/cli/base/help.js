@@ -100,11 +100,10 @@ var handleArgDesc = (arg) => { //handle argument description
 
 var handleArgs = (command, maxWidth) => {
 	if (command.requiredArgs.length === 0 && command.optionalArgs.length === 0 && !command.variadicArg) return '';
-	return 'arguments:\n' + table2([
-		...command.requiredArgs,
-		...command.optionalArgs,
-		command.variadicArg
-	].map(arg => [handleArgExp(arg), handleArgDesc(arg)]), 20, maxWidth)
+	var args = command.variadicArg ? 
+		command.requiredArgs.concat(command.optionalArgs, command.variadicArg) :
+		command.requiredArgs.concat(command.optionalArgs)
+	return 'arguments:\n' + table2(args.map(arg => [handleArgExp(arg), handleArgDesc(arg)]), 20, maxWidth)
 }
 
 var handleOptName = (opt) => {

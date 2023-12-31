@@ -48,8 +48,8 @@ class Binder {
 			this.binds[name].forEach(b=>this.handlers[b.type] (b, newv, this.comp, oldv, prop, name, meta))
 		}
 	}
-	prehandle (prop, oldv, newv, meta) {
-		if (newv?.constructor?.name in this.prehandlers) return this.prehandlers[newv?.constructor?.name](this.comp, prop, oldv, newv, meta);
+	prehandle (prop, oldv, newv, Prop, meta) {
+		if (newv?.constructor?.name in this.prehandlers) return this.prehandlers[newv?.constructor?.name](this.comp, prop, oldv, newv, Prop, meta);
 		else return meta
 	}
 	addBind (prop, obj, set = true, prehandle = this.opts.prehandle) {//add bind
@@ -70,7 +70,7 @@ class Binder {
 		
 		//set if possible
 		if (set && this.opts.setOnDefine) {
-			if (prehandle) meta = this.prehandle(prop, val, val, {});
+			if (prehandle) meta = this.prehandle(prop, val, val, Prop, {});
 			this.handlers[obj.type] (obj, val, this.comp, val, Prop, prop, {...meta, set:true});
 		}
 		
